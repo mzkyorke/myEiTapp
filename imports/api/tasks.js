@@ -20,6 +20,11 @@ Meteor.methods({
 			username: Meteor.user().username,
 		});
 	},
+	'tasks.remove'(taskId) {
+		check(taskId, String);
+
+		Tasks.remove(taskId);
+	},
 	'tasks.setChecked'(taskId, setChecked) {
 		check(taskId, String);
 		check(setChecked, Boolean);
